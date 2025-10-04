@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Jeevan Pannai</title>
+  <link rel="icon" href="images/logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar"></nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-heading">
+        <h1>Welcome to Jeevan Pannai Family</h1>
+      </div>
+
+      <h2 class="sub-heading"></h2>
+      <h3 class="batch-text">Enter the Batch No:</h3>
+
+      <!-- Batch input form -->
+      <form action="/submit" method="POST" id="batchForm">
+        <input type="text" name="batchno" id="batchNumber" placeholder="Batch No" required  autocomplete="off"  />
+        <button type="submit" class="btn">Submit</button>
+      </form>
+
+      <h2 class="input-info">எங்களிடம் சுத்தமான பசு நெய் (Pure COW Ghee) கிடைக்கும்.</h2>
+      <h2 class="input-info">Order மற்றும் Enquiry</h2>
+
+      <!-- Phone number form -->
+      <form action="/submit-phone" method="POST" id="phoneForm">
+        <label for="phoneNumber" class="phone-label">Enter your Mobile No:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your Mobile No" required autocomplete="off"  />
+        <button type="submit" class="btn">OK</button>
+      </form>
+    </div>
+
+    <!-- Hero Images -->
+    <div class="hero-image">
+      <img src="images/milk_packet.png" alt="Milk Packet" class="milk-packet" />
+      <img src="images/milk_bottle.png" alt="Milk Bottle" class="milk-bottle" />
+      <img src="images/milk_glass.png" alt="Milk Glass" class="milk-glass" />
+    </div>
+  </section>
+  
+
+</body>
+</html>

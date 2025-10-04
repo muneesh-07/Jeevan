@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phone Numbers - Jeevan Panai</title>
+  <link rel="icon" href="images/logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #503361;
+      margin-bottom: 30px;
+    }
+
+    .btn-back {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: #503361;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .btn-back:hover {
+      background-color: #333;
+    }
+
+    table {
+      width: 80%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #503361;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Submitted Phone Numbers</h1>
+  
+
+  <table id="phonesTable">
+    <thead>
+      <tr>
+        <th>Phone Number</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    async function loadPhones() {
+      const res = await fetch("/phones");
+      const phones = await res.json();
+      const tbody = document.querySelector("#phonesTable tbody");
+      tbody.innerHTML = "";
+
+      phones.forEach(p => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${p.phoneNumber}</td>
+          <td>${new Date(p.date).toLocaleString()}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    loadPhones();
+  </script>
+</body>
+</html>

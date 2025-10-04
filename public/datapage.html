@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>உங்க Milk உங்க Data</title>
+  <link rel="icon" href="images/logo.png" type="image/x-icon" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #503361;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .data-box {
+      border: 2px solid #2c3e50;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>உங்க Milk உங்க Data</h1>
+
+    <div class="data-box">
+      <div class="row">
+        <label for="fat">Fat</label>
+        <input type="text" id="fat">
+      </div>
+      <div class="row">
+        <label for="snf">SNF</label>
+        <input type="text" id="snf">
+      </div>
+      <div class="row">
+        <label for="water">Water level</label>
+        <input type="text" id="water">
+      </div>
+      <div class="row">
+        <label for="protein">Protein</label>
+        <input type="text" id="protein">
+      </div>
+    </div>
+
+    <p class="note">
+      இந்தப் பாலில் ஏதேனும் சந்தேகம் இருப்பினும் தனியார் நிறுவனத்திடமோ அல்லது ஆவின் நிறுவனத்திடமோ கொடுத்து உறுதிபடுத்தி  கொள்ளுங்க
+    </p>
+  </div>
+
+
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  document.getElementById("fat").value = params.get("fat") || "";
+  document.getElementById("snf").value = params.get("snf") || "";
+  document.getElementById("water").value = params.get("water") || "";
+  document.getElementById("protein").value = params.get("protein") || "";
+</script>
+
+
+</body>
+</html>
