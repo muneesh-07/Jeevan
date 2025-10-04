@@ -7,6 +7,6 @@ const batchSchema = new mongoose.Schema({
   water: Number,
   protein: Number,
   date: { type: Date, required: true } // only admin-entered date
-} { timestamps: true });
+}, { timestamps: true });
 
 module.exports = mongoose.model("Batch", batchSchema);
