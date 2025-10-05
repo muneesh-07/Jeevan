@@ -9,10 +9,15 @@ async function loadBatches() {
     batches.forEach(batch => {
       const tr = document.createElement("tr");
 
-      // Ensure date is valid and formatted correctly
-      const dateValue = batch.date
-        ? new Date(batch.date).toISOString().split("T")[0]
-        : "";
+      // Format date as DD-MM-YYYY for display
+      let dateValue = "";
+      if (batch.date) {
+        const d = new Date(batch.date);
+        const day = String(d.getDate()).padStart(2, '0');
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const year = d.getFullYear();
+        dateValue = `${day}-${month}-${year}`;
+      }
 
       tr.innerHTML = `
         <td>${batch.batch_no}</td>
@@ -20,7 +25,7 @@ async function loadBatches() {
         <td><input type="number" step="0.1" value="${batch.snf ?? ""}" data-id="${batch._id}" data-field="snf"></td>
         <td><input type="number" step="0.1" value="${batch.water ?? ""}" data-id="${batch._id}" data-field="water"></td>
         <td><input type="number" step="0.1" value="${batch.protein ?? ""}" data-id="${batch._id}" data-field="protein"></td>
-        <td><input type="date" value="${dateValue}" data-id="${batch._id}" data-field="date"></td>
+        <td><input type="text" value="${dateValue}" placeholder="DD-MM-YYYY" data-id="${batch._id}" data-field="date"></td>
         <td>
           <button data-id="${batch._id}" class="updateBtn action-btn update-btn">Update</button>
           <button data-id="${batch._id}" class="deleteBtn action-btn delete-btn">Delete</button>
